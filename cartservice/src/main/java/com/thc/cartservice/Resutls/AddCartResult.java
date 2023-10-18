@@ -1,0 +1,29 @@
+package com.thc.cartservice.Resutls;
+
+import com.thc.cartservice.Entity.Cart;
+import org.springframework.http.HttpStatus;
+
+public class AddCartResult {
+    private int code;
+    private Cart cart;
+    public AddCartResult(Cart cardResult) {
+        this.code = HttpStatus.OK.value();
+        this.cart = cardResult;
+    }
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
+}
