@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.thc.productservice.Mapper.ProductMapper">
+    <resultMap id="ProductResultMap" type="Product">
+        <id column="ID" property="id" />
+        <result column="NAME" property="name"/>
+        <result column="AVATAR" property="avatar"/>
+        <result column="PRICE" property="price"/>
+        <result property="cateId" column="cateId" />
+    </resultMap>
+
+    <select id="findAll" resultMap="ProductResultMap">
+        SELECT * FROM Product
+    </select>
+
+    <select id="findById"  resultMap="ProductResultMap" parameterType="String">
+        SELECT * FROM Product WHERE id = #{id}
+    </select>
+
+    <insert id="addProduct" parameterType="Product" >
+        INSERT INTO Product(id, name, avatar, price,cateId)
+        VALUES (#{id}, #{name}, #{avatar}, #{price}, #{cateId})
+    </insert>
+
+    <select id="count"  resultMap="ProductResultMap" parameterType="Integer">
+        SELECT count(*) FROM CART
+    </select>
+
+    <update id="updateProduct" parameterType="Product">
+        Update Product
+        set name=#{name},
+            avatar=#{avatar},
+            price=#{price},
+            cateId=#{cateId}
+        where id = #{id}
+    </update>
+    <delete id="deleteById" parameterType="String">
+        DELETE
+        FROM Product
+        WHERE id = #{id}
+    </delete>
+    <delete id="deleteAll">
+        DELETE
+        FROM Product
+    </delete>
+</mapper>

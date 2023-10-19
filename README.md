@@ -1,6 +1,7 @@
 # thc-services
 Backend: 
 CartService: Quản lý xe đẩy || 100%
+CategoryService: Quản lý chuyên mục || Updating
 ProductService: Quản lý sản phẩm || Updating
 UserService: Quản lý thành viên || Updating
 CustomerService: Quản lý khách hàng || Updating
