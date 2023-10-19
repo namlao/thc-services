@@ -44,7 +44,7 @@ public class CartRepositoryImpl implements CartRepository {
     }
 
     @Override
-    public int count() {
+    public Long count() {
         return cartMapper.count();
     }
 }

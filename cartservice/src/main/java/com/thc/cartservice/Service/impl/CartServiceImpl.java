@@ -44,35 +44,32 @@ public class CartServiceImpl implements CartService {
     public Cart updateCart(UpdateCartArgs updateCartArgs){
         String id = updateCartArgs.getId();
 
-        if(this.getCart(id) == null){
-            return null;
-        }
-        Cart cart = this.getCart(updateCartArgs.getId());
+        Cart cart = this.getCart(id);
+
         cart.setName(updateCartArgs.getName());
         cart.setManager(updateCartArgs.getManager());
         cart.setAddress(updateCartArgs.getAddress());
 
 
         cartRepository.updateCart(cart);
-        return cartRepository.getCart(id);
+        return cart;
     }
 
     @Override
     public int deleteCart(String id) {
-        String cartId = this.getCart(id).getId();
-        return cartRepository.deleteCart(cartId);
+        return cartRepository.deleteCart(this.getCart(id).getId());
     }
 
     @Override
     public int deleteCartAll() {
-        if(cartRepository.deleteCartAll() == 0){
+        if(this.count() == 0){
             throw new CartNotFoundException("Không có dữ liệu");
         }
         return cartRepository.deleteCartAll();
     }
 
     @Override
-    public int count() {
+    public Long count() {
         return cartRepository.count();
     }
 }

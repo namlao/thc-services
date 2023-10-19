@@ -16,5 +16,5 @@ public interface CartRepository {
     public int deleteCart(String id);
     public int deleteCartAll();
 
-    public int count();
+    public Long count();
 }

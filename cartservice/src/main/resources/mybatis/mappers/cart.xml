@@ -22,7 +22,7 @@
         VALUES (#{id}, #{name}, #{manager}, #{address}, #{createdAt})
     </insert>
 
-    <select id="count"  resultMap="CartResultMap" parameterType="Integer">
+    <select id="count"  resultType="Long">
         SELECT count(*) FROM CART
     </select>
 

@@ -17,7 +17,7 @@ public interface CartMapper {
 
     int addCart(Cart cart);
 
-    int count();
+    Long count();
 
     int deleteById(String id);
 
