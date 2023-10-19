@@ -2,7 +2,7 @@
 Backend: 
 CartService: Quản lý xe đẩy || 100%
 CategoryService: Quản lý chuyên mục || Updating
-ProductService: Quản lý sản phẩm || Updating
+ProductService: Quản lý sản phẩm || 50%
 UserService: Quản lý thành viên || Updating
 CustomerService: Quản lý khách hàng || Updating
 OrderService: Quản lý đơn hàng || Updating
