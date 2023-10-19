@@ -3,6 +3,7 @@ package com.thc.productservice.Service.Impl;
 import com.thc.productservice.Args.AddProductArgs;
 import com.thc.productservice.Args.UpdateProductArgs;
 import com.thc.productservice.Entity.Product;
+import com.thc.productservice.Exception.ProductNotFoundException;
 import com.thc.productservice.Repository.ProductRepository;
 import com.thc.productservice.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,9 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product getProduct(String id) {
+        if(productRepository.findById(id) == null){
+            throw new ProductNotFoundException("Id không tồn tại");
+        }
         return productRepository.findById(id);
     }
 
@@ -35,22 +39,36 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product updateProduct(UpdateProductArgs cart) {
-        return null;
+    public Product updateProduct(UpdateProductArgs updateProductArgs) {
+        String id = updateProductArgs.getId();
+
+        Product product = this.getProduct(id);
+
+        product.setName(updateProductArgs.getName());
+        product.setAvatar(updateProductArgs.getAvatar());
+        product.setPrice(updateProductArgs.getPrice());
+        product.setCateId(updateProductArgs.getCateId());
+
+
+        productRepository.updateProduct(product);
+        return product;
     }
 
     @Override
     public int deleteProduct(String id) {
-        return 0;
+        return productRepository.deleteById(this.getProduct(id).getId());
     }
 
     @Override
     public int deleteProductAll() {
-        return 0;
+        if(this.count() == 0){
+            throw new ProductNotFoundException("Không có dữ liệu");
+        }
+        return productRepository.deleteAll();
     }
 
     @Override
-    public int count() {
-        return 0;
+    public Long count() {
+        return productRepository.count();
     }
 }

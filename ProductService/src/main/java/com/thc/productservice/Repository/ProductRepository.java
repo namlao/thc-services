@@ -11,7 +11,7 @@ public interface ProductRepository {
 
     int addProduct(Product product);
 
-    int count();
+    Long count();
 
     int deleteById(String id);
 

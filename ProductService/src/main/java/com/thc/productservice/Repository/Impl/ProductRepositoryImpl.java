@@ -30,7 +30,7 @@ public class ProductRepositoryImpl implements ProductRepository {
     }
 
     @Override
-    public int count() {
+    public Long count() {
         return productMapper.count();
     }
 

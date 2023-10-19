@@ -22,8 +22,8 @@
         VALUES (#{id}, #{name}, #{avatar}, #{price}, #{cateId})
     </insert>
 
-    <select id="count"  resultMap="ProductResultMap" parameterType="Integer">
-        SELECT count(*) FROM CART
+    <select id="count"  resultType="Long">
+        SELECT count(*) FROM Product
     </select>
 
     <update id="updateProduct" parameterType="Product">

@@ -18,5 +18,5 @@ public interface ProductService {
     public int deleteProduct(String id);
     public int deleteProductAll();
 
-    public int count();
+    public Long count();
 }
