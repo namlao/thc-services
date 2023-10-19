@@ -31,9 +31,11 @@ public class Cart {
     }
 
     public Cart(String name, String manager, String address) {
+        this.id = UUID.randomUUID().toString();
         this.name = name;
         this.manager = manager;
         this.address = address;
+        this.createdAt = LocalDate.now();
     }
 
     public String getId() {

@@ -20,10 +20,8 @@ public class CartServiceImpl implements CartService {
 
     @Override
     public Cart createCart(AddCartArgs cartArgs) {
-        String id = UUID.randomUUID().toString();
         Cart cart = new Cart(cartArgs.getName(),cartArgs.getManager(),cartArgs.getAddress());
-        cart.setId(id);
-        cart.setCreatedAt(LocalDate.now());
+        String id = cart.getId();
         cartRepository.createCart(cart);
 
         return cartRepository.getCart(id);
