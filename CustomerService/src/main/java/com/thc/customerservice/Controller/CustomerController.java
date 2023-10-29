@@ -1,4 +1,4 @@
-package com.thc.customerservice;
+package com.thc.customerservice.Controller;
 
 import com.thc.customerservice.Entity.Customer;
 import com.thc.customerservice.Services.CustomerService;
