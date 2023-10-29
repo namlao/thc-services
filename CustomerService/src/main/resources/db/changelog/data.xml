@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="02" author="techgeeknext">
+        <comment>Inserting employees</comment>
+        <insert tableName="customer">
+            <column name="id" value="f51663b8-0280-462e-9803-0565675c424c"/>
+            <column name="name" value="Tuan"/>
+            <column name="PHONE" value="0123456789"/>
+            <column name="POINT" value="0"/>
+            <column name="LEVEL" value="DONG"/>
+        </insert>
+        <insert tableName="customer">
+            <column name="id" value="98550714-8417-415e-9518-1c496b177547"/>
+            <column name="name" value="Nam"/>
+            <column name="PHONE" value="0123456789"/>
+            <column name="POINT" value="10"/>
+            <column name="LEVEL" value="BAC"/>
+        </insert>
+        <insert tableName="customer">
+            <column name="id" value="e517617e-7640-4353-8a4a-42489b3c6052"/>
+            <column name="name" value="Viet"/>
+            <column name="PHONE" value="0123456789"/>
+            <column name="POINT" value="35"/>
+            <column name="LEVEL" value="VANG"/>
+        </insert>
+
+    </changeSet>
+</databaseChangeLog>
