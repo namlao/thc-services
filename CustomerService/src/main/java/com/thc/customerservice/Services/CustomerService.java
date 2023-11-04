@@ -1,6 +1,7 @@
 package com.thc.customerservice.Services;
 
 import com.thc.customerservice.Args.AddCustomerArgs;
+import com.thc.customerservice.Args.FindByPhoneArgs;
 import com.thc.customerservice.Args.UpdateCustomerArgs;
 import com.thc.customerservice.Entity.Customer;
 
@@ -11,7 +12,7 @@ public interface CustomerService {
 
     public Customer getCustomer(String id);
 
-    public Customer getCustomerByPhone(String phone);
+    public Customer getCustomerByPhone(FindByPhoneArgs phone);
 
     public List<Customer> getAllCustomer();
 

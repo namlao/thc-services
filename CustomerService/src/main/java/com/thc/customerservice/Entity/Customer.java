@@ -1,7 +1,10 @@
 package com.thc.customerservice.Entity;
 
+import com.fasterxml.uuid.impl.UUIDUtil;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+
+import java.util.UUID;
 
 @Data
 public class Customer {
@@ -17,6 +20,14 @@ public class Customer {
 
     public Customer(String id, String name, String phone, int point, String level) {
         this.id = id;
+        this.name = name;
+        this.phone = phone;
+        this.point = point;
+        this.level = level;
+    }
+
+    public Customer(String name, String phone, int point, String level) {
+        this.id = UUID.randomUUID().toString();
         this.name = name;
         this.phone = phone;
         this.point = point;

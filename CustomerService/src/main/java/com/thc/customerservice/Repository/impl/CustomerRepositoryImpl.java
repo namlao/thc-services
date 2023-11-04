@@ -21,36 +21,36 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 
     @Override
     public Customer findById(String id) {
-        return null;
+        return customerMapper.findById(id);
     }
 
     @Override
     public int addCustomer(Customer cart) {
-        return 0;
+        return customerMapper.addCustomer(cart);
     }
 
     @Override
     public Long count() {
-        return null;
+        return customerMapper.count();
     }
 
     @Override
     public int deleteById(String id) {
-        return 0;
+        return customerMapper.deleteById(id);
     }
 
     @Override
     public int deleteAll() {
-        return 0;
+        return customerMapper.deleteAll();
     }
 
     @Override
     public int updateCustomer(Customer cart) {
-        return 0;
+        return customerMapper.updateCustomer(cart);
     }
 
     @Override
     public Customer findByPhone(String phone) {
-        return null;
+        return customerMapper.findByPhone(phone);
     }
 }

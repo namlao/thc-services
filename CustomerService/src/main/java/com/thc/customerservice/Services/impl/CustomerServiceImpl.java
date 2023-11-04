@@ -1,6 +1,7 @@
 package com.thc.customerservice.Services.impl;
 
 import com.thc.customerservice.Args.AddCustomerArgs;
+import com.thc.customerservice.Args.FindByPhoneArgs;
 import com.thc.customerservice.Args.UpdateCustomerArgs;
 import com.thc.customerservice.Entity.Customer;
 import com.thc.customerservice.Repository.CustomerRepository;
@@ -22,12 +23,13 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Customer getCustomer(String id) {
-        return null;
+        return customerRepository.findById(id);
     }
 
     @Override
-    public Customer getCustomerByPhone(String phone) {
-        return null;
+    public Customer getCustomerByPhone(FindByPhoneArgs phone) {
+
+        return customerRepository.findByPhone(phone.getPhone());
     }
 
     @Override
