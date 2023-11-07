@@ -110,7 +110,7 @@ public class CustomerController {
     @Operation(
             summary = "Xóa xe đẩy theo Id",
             description = "Xóa xe đẩy theo Id",
-            tags = {"Cart Controller"})
+            tags = {"Customer Controller"})
     @ApiResponses({
             @ApiResponse(responseCode = "200", content = {@Content(schema = @Schema(implementation = DeleteCustomerResponse.class), mediaType = "application/json")}),
             @ApiResponse(responseCode = "400", content = {@Content(schema = @Schema(implementation = Error.class), mediaType = "application/json")})})
