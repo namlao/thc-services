@@ -1,14 +1,9 @@
 package com.thc.customerservice.Services.impl;
 
-import com.thc.customerservice.Args.AddCustomerArgs;
-import com.thc.customerservice.Args.FindByPhoneArgs;
-import com.thc.customerservice.Args.ListAllCustomerArgs;
-import com.thc.customerservice.Args.UpdateCustomerArgs;
+import com.thc.customerservice.Args.*;
 import com.thc.customerservice.Entity.Customer;
 import com.thc.customerservice.Repository.CustomerRepository;
-import com.thc.customerservice.Result.FindByPhoneResult;
-import com.thc.customerservice.Result.ListByIdResult;
-import com.thc.customerservice.Result.ListCustomerResult;
+import com.thc.customerservice.Result.*;
 import com.thc.customerservice.Services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,22 +16,22 @@ public class CustomerServiceImpl implements CustomerService {
     private CustomerRepository customerRepository;
 
     @Override
-    public Customer createCart(AddCustomerArgs cart) {
-        return null;
+    public AddCustomerResult createCart(AddCustomerArgs cart) {
+        Customer customer = new Customer(cart.getRequest().getName(),cart.getRequest().getPhone());
+        AddCustomerResult result = new AddCustomerResult(customer);
+        return result;
     }
 
     @Override
-    public ListByIdResult getCustomer(String id) {
-    	System.out.println("id: "+ id);
-    	Customer customer = customerRepository.findById(id);
-    	System.out.println(customer);
+    public ListByIdResult getCustomer(FindByIdArgs args) {
+    	Customer customer = customerRepository.findById(args.getRequest().getId());
     	ListByIdResult result = new ListByIdResult(customer);
         return result;
     }
 
     @Override
     public FindByPhoneResult getCustomerByPhone(FindByPhoneArgs args) {
-    	FindByPhoneResult result = new FindByPhoneResult(customerRepository.findByPhone(args.getPhone())) ;
+    	FindByPhoneResult result = new FindByPhoneResult(customerRepository.findByPhone(args.getRequest().getPhone())) ;
         return result;
     }
 
@@ -48,7 +43,17 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Customer updateCustomer(UpdateCustomerArgs cart) {
+    public UpdateCustomerResult updateCustomer(UpdateCustomerArgs args) {
+
+        int rs = customerRepository.updateCustomer(new Customer(args.getRequest().getId(),args.getRequest().getName(),args.getRequest().getPhone(),args.getRequest().getPoint(),args.getRequest().getLevel()));
+        String id = args.getRequest().getId();
+        Customer customer = customerRepository.findById(id);
+        UpdateCustomerResult result = new UpdateCustomerResult(rs != 0? customer :null);
+        return result;
+    }
+
+    @Override
+    public UpdateCustomerResult updateCustomerByPhone(UpdateCustomerArgs args) {
         return null;
     }
 

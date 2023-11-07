@@ -4,7 +4,6 @@ import com.thc.customerservice.Requests.FindByPhoneRequest;
 
 public class FindByPhoneArgs {
 	private FindByPhoneRequest request;
-	private String phone;
 
 	public FindByPhoneArgs(FindByPhoneRequest request) {
 		super();
@@ -19,8 +18,5 @@ public class FindByPhoneArgs {
 		this.request = request;
 	}
 
-	public String getPhone() {
-		return this.request.getPhone();
-	}
 
 }

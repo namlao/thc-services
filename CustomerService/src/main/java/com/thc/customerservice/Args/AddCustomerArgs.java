@@ -1,27 +1,19 @@
 package com.thc.customerservice.Args;
 
+import com.thc.customerservice.Requests.AddCustomerRequest;
+
 public class AddCustomerArgs {
-    private String name;
-    private String phone;
+    private AddCustomerRequest request;
 
-    public AddCustomerArgs(String name, String phone) {
-        this.name = name;
-        this.phone = phone;
+    public AddCustomerArgs(AddCustomerRequest request) {
+        this.request = request;
     }
 
-    public String getName() {
-        return name;
+    public AddCustomerRequest getRequest() {
+        return request;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setRequest(AddCustomerRequest request) {
+        this.request = request;
     }
 }

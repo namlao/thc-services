@@ -49,10 +49,20 @@
 
     <update id="updateCustomer" parameterType="Customer">
         Update Customer
-        set name=#{name},
+        set
+        <if test="name != null">
+            name=#{name},
+        </if>
+        <if test="phone != null">
             phone=#{phone},
+        </if>
+        <if test="point != null">
             point=#{point},
+        </if>
+        <if test="level != null">
             level=#{level}
+        </if>
+
         where id = #{id}
     </update>
     <delete id="deleteById" parameterType="String">

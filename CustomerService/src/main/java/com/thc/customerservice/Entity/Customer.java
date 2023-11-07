@@ -1,6 +1,7 @@
 package com.thc.customerservice.Entity;
 
 import com.fasterxml.uuid.impl.UUIDUtil;
+import com.thc.customerservice.Config.Level;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 
@@ -32,6 +33,13 @@ public class Customer {
         this.phone = phone;
         this.point = point;
         this.level = level;
+    }
+
+    public Customer(String name, String phone) {
+        this.id = UUID.randomUUID().toString();
+        this.name = name;
+        this.phone = phone;
+        this.level = Level.Dong;
     }
 
     public String getId() {
@@ -66,11 +74,4 @@ public class Customer {
         this.point = point;
     }
 
-    public String getLevel() {
-        return level;
-    }
-
-    public void setLevel(String level) {
-        this.level = level;
-    }
 }

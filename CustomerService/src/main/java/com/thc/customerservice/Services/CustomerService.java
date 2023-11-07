@@ -1,24 +1,20 @@
 package com.thc.customerservice.Services;
 
-import com.thc.customerservice.Args.AddCustomerArgs;
-import com.thc.customerservice.Args.FindByPhoneArgs;
-import com.thc.customerservice.Args.ListAllCustomerArgs;
-import com.thc.customerservice.Args.UpdateCustomerArgs;
+import com.thc.customerservice.Args.*;
 import com.thc.customerservice.Entity.Customer;
-import com.thc.customerservice.Result.FindByPhoneResult;
-import com.thc.customerservice.Result.ListByIdResult;
-import com.thc.customerservice.Result.ListCustomerResult;
+import com.thc.customerservice.Result.*;
 
 public interface CustomerService {
-    public Customer createCart(AddCustomerArgs cart);
+    public AddCustomerResult createCart(AddCustomerArgs cart);
 
-    public ListByIdResult getCustomer(String id);
+    public ListByIdResult getCustomer(FindByIdArgs args);
 
     public FindByPhoneResult getCustomerByPhone(FindByPhoneArgs phone);
 
     public ListCustomerResult getAllCustomer(ListAllCustomerArgs args);
 
-    public Customer updateCustomer(UpdateCustomerArgs cart);
+    public UpdateCustomerResult updateCustomer(UpdateCustomerArgs args);
+    public UpdateCustomerResult updateCustomerByPhone(UpdateCustomerArgs args);
 
     public int deleteCustomer(String id);
     public int deleteCustomerAll();
