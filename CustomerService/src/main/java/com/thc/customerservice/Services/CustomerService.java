@@ -14,9 +14,9 @@ public interface CustomerService {
     public ListCustomerResult getAllCustomer(ListAllCustomerArgs args);
 
     public UpdateCustomerResult updateCustomer(UpdateCustomerArgs args);
-    public UpdateCustomerResult updateCustomerByPhone(UpdateCustomerArgs args);
+    public UpdateCustomerByPhoneResult updateCustomerByPhone(UpdateCustomerByPhoneArgs args);
 
-    public int deleteCustomer(String id);
+    public DeleteCustomerResult deleteCustomer(DeleteCustomerArgs args);
     public int deleteCustomerAll();
 
     public Long count();

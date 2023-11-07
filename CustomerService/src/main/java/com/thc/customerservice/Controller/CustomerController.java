@@ -94,41 +94,29 @@ public class CustomerController {
         return new UpdateCustomerResponse(customerService.updateCustomer(args));
     }
 
-//    @Operation(
-//            summary = "Cập nhật diem khach hang",
-//            description = "Cập nhật điểm khach hang",
-//            tags = {"Customer Controller"})
-//    @ApiResponses({
-//            @ApiResponse(responseCode = "200", content = {@Content(schema = @Schema(implementation = UpdateCustomerResponse.class), mediaType = "application/json")}),
-//            @ApiResponse(responseCode = "400", content = {@Content(schema = @Schema(implementation = Error.class), mediaType = "application/json")}),})
-//    @PutMapping("/updateCustomerByPhone")
-//    public UpdateCustomerByPhoneResponse updateCartByPhone(@RequestBody(required = true) UpdateCustomerByPhoneRequest request){
-//        UpdateCustomerArgs args = new UpdateCustomerArgs(request);
-//        return new UpdateCustomerByPhoneResponse(customerService.updateCustomerByPhone(args));
-//    }
+    @Operation(
+            summary = "Cập nhật diem khach hang",
+            description = "Cập nhật điểm khach hang",
+            tags = {"Customer Controller"})
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", content = {@Content(schema = @Schema(implementation = UpdateCustomerResponse.class), mediaType = "application/json")}),
+            @ApiResponse(responseCode = "400", content = {@Content(schema = @Schema(implementation = Error.class), mediaType = "application/json")}),})
+    @PutMapping("/updateCustomerByPhone")
+    public UpdateCustomerByPhoneResponse updateCartByPhone(@RequestBody(required = true) UpdateCustomerByPhoneRequest request){
+        UpdateCustomerByPhoneArgs args = new UpdateCustomerByPhoneArgs(request);
+        return new UpdateCustomerByPhoneResponse(customerService.updateCustomerByPhone(args));
+    }
 
-//    @Operation(
-//            summary = "Xóa xe đẩy theo Id",
-//            description = "Xóa xe đẩy theo Id",
-//            tags = {"Cart Controller"})
-//    @ApiResponses({
-//            @ApiResponse(responseCode = "200", content = {@Content(schema = @Schema(implementation = DeleteByIdResult.class), mediaType = "application/json")}),
-//            @ApiResponse(responseCode = "400", content = {@Content(schema = @Schema(implementation = Error.class), mediaType = "application/json")})})
-//    @DeleteMapping("/deleteById")
-//    public DeleteByIdResult deleteById(@RequestParam(value = "id") String id) {
-//
-//        return new DeleteByIdResult(cartService.deleteCart(id));
-//    }
-//
-//    @Operation(
-//            summary = "Xóa toàn bộ xe đẩy",
-//            description = "Xóa toàn bộ xe đẩy",
-//            tags = {"Cart Controller"})
-//    @ApiResponses({
-//            @ApiResponse(responseCode = "200", content = {@Content(schema = @Schema(implementation = DeleteAllResult.class), mediaType = "application/json")}),
-//            @ApiResponse(responseCode = "500", content = {@Content(schema = @Schema())})})
-//    @DeleteMapping("/deleteAll")
-//    public DeleteAllResult deleteAll() {
-//        return new DeleteAllResult(cartService.deleteCartAll());
-//    }
+    @Operation(
+            summary = "Xóa xe đẩy theo Id",
+            description = "Xóa xe đẩy theo Id",
+            tags = {"Cart Controller"})
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", content = {@Content(schema = @Schema(implementation = DeleteCustomerResponse.class), mediaType = "application/json")}),
+            @ApiResponse(responseCode = "400", content = {@Content(schema = @Schema(implementation = Error.class), mediaType = "application/json")})})
+    @DeleteMapping("/deleteById")
+    public DeleteCustomerResponse deleteById(DeleteCustomerRequest request) {
+        DeleteCustomerArgs args = new DeleteCustomerArgs(request);
+        return new DeleteCustomerResponse(customerService.deleteCustomer(args));
+    }
 }

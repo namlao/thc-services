@@ -42,6 +42,12 @@ public class Customer {
         this.level = Level.Dong;
     }
 
+    public Customer(String id, int point,String level) {
+        this.id = id;
+        this.point = point;
+        this.level = level;
+    }
+
     public String getId() {
         return id;
     }
