@@ -1,15 +1,9 @@
 package com.thc.customerservice.Result;
 
 import com.thc.customerservice.Entity.Customer;
-import org.springframework.http.HttpStatus;
 
-public class ListByIdResult {
+public class FindByPhoneResult {
 	private Customer customer;
-
-	public ListByIdResult(Customer customer) {
-		super();
-		this.customer = customer;
-	}
 
 	public Customer getCustomer() {
 		return customer;
@@ -19,4 +13,10 @@ public class ListByIdResult {
 		this.customer = customer;
 	}
 
+	public FindByPhoneResult(Customer customer) {
+		super();
+		this.customer = customer;
+	}
+	
+	
 }

@@ -1,21 +1,28 @@
 package com.thc.customerservice.Controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.thc.customerservice.Args.FindByIdArgs;
 import com.thc.customerservice.Args.FindByPhoneArgs;
-import com.thc.customerservice.Entity.Customer;
-import com.thc.customerservice.Result.ListByIdResult;
-import com.thc.customerservice.Result.ListByPhoneResult;
-import com.thc.customerservice.Result.ListCustomerResult;
+import com.thc.customerservice.Args.ListAllCustomerArgs;
+import com.thc.customerservice.Requests.FindByPhoneRequest;
+import com.thc.customerservice.Requests.ListAllCustomerRequest;
+import com.thc.customerservice.Requests.ListByIdRequest;
+import com.thc.customerservice.Response.FindByPhoneResponse;
+import com.thc.customerservice.Response.ListAllCustomerResponse;
+import com.thc.customerservice.Response.ListByIdResponse;
 import com.thc.customerservice.Services.CustomerService;
+
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 import io.swagger.v3.oas.annotations.tags.Tag;
-
-import java.util.List;
 
 @Tag(name = "Customer Controller", description = "Customer management APIs")
 @RestController
@@ -31,11 +38,12 @@ public class CustomerController {
             description = "Lấy toàn bộ xe đẩy",
             tags = {"Customer Controller"})
     @ApiResponses({
-            @ApiResponse(responseCode = "200", content = {@Content(schema = @Schema(implementation = ListCustomerResult.class), mediaType = "application/json")}),
+            @ApiResponse(responseCode = "200", content = {@Content(schema = @Schema(implementation = ListAllCustomerResponse.class), mediaType = "application/json")}),
             @ApiResponse(responseCode = "500", content = {@Content(schema = @Schema())})})
     @GetMapping("/findAll")
-    public ListCustomerResult listCart() {
-        return new ListCustomerResult(customerService.getAllCustomer());
+    public ListAllCustomerResponse listCustomer(ListAllCustomerRequest request) {
+        ListAllCustomerArgs args = new ListAllCustomerArgs(request);
+        return new ListAllCustomerResponse(customerService.getAllCustomer(args));
     }
 
     @Operation(
@@ -43,13 +51,13 @@ public class CustomerController {
             description = "Lấy xe đẩy theo id",
             tags = {"Customer Controller"})
     @ApiResponses({
-            @ApiResponse(responseCode = "200", content = {@Content(schema = @Schema(implementation = ListByIdResult.class), mediaType = "application/json")}),
+            @ApiResponse(responseCode = "200", content = {@Content(schema = @Schema(implementation = ListByIdResponse.class), mediaType = "application/json")}),
             @ApiResponse(responseCode = "400", content = {@Content(schema = @Schema(implementation = Error.class), mediaType = "application/json")}),
             @ApiResponse(responseCode = "500", content = {@Content(schema = @Schema())})})
     @GetMapping("/findById")
-    public ListByIdResult listCart(@RequestParam(value = "id") String id){
-
-        return new ListByIdResult(customerService.getCustomer(id));
+    public ListByIdResponse findById(ListByIdRequest request){
+    	FindByIdArgs args = new FindByIdArgs(request);
+        return new ListByIdResponse(customerService.getCustomer(args.getId()));
 
     }
 
@@ -58,13 +66,13 @@ public class CustomerController {
             description = "Lấy xe đẩy theo id",
             tags = {"Customer Controller"})
     @ApiResponses({
-            @ApiResponse(responseCode = "200", content = {@Content(schema = @Schema(implementation = ListByPhoneResult.class), mediaType = "application/json")}),
+            @ApiResponse(responseCode = "200", content = {@Content(schema = @Schema(implementation = FindByPhoneResponse.class), mediaType = "application/json")}),
             @ApiResponse(responseCode = "400", content = {@Content(schema = @Schema(implementation = Error.class), mediaType = "application/json")}),
             @ApiResponse(responseCode = "500", content = {@Content(schema = @Schema())})})
     @GetMapping("/findByPhone")
-    public ListByPhoneResult listCart(FindByPhoneArgs phone){
-
-        return new ListByPhoneResult(customerService.getCustomerByPhone(phone));
+    public FindByPhoneResponse findByPhone(FindByPhoneRequest request){
+    	FindByPhoneArgs args = new FindByPhoneArgs(request);
+        return new FindByPhoneResponse(customerService.getCustomerByPhone(args));
 
     }
 //

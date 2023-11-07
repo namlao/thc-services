@@ -1,5 +1,6 @@
 package com.thc.customerservice.Repository.impl;
 
+import com.thc.customerservice.Args.ListAllCustomerArgs;
 import com.thc.customerservice.Entity.Customer;
 import com.thc.customerservice.Mapper.CustomerMapper;
 import com.thc.customerservice.Repository.CustomerRepository;
@@ -15,8 +16,8 @@ public class CustomerRepositoryImpl implements CustomerRepository {
     private CustomerMapper customerMapper;
 
     @Override
-    public List<Customer> findAll() {
-        return customerMapper.findAll();
+    public List<Customer> findAll(ListAllCustomerArgs args) {
+        return customerMapper.findAll(args);
     }
 
     @Override

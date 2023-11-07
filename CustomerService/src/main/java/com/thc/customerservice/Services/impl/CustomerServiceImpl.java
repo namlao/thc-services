@@ -2,9 +2,13 @@ package com.thc.customerservice.Services.impl;
 
 import com.thc.customerservice.Args.AddCustomerArgs;
 import com.thc.customerservice.Args.FindByPhoneArgs;
+import com.thc.customerservice.Args.ListAllCustomerArgs;
 import com.thc.customerservice.Args.UpdateCustomerArgs;
 import com.thc.customerservice.Entity.Customer;
 import com.thc.customerservice.Repository.CustomerRepository;
+import com.thc.customerservice.Result.FindByPhoneResult;
+import com.thc.customerservice.Result.ListByIdResult;
+import com.thc.customerservice.Result.ListCustomerResult;
 import com.thc.customerservice.Services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,19 +26,25 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Customer getCustomer(String id) {
-        return customerRepository.findById(id);
+    public ListByIdResult getCustomer(String id) {
+    	System.out.println("id: "+ id);
+    	Customer customer = customerRepository.findById(id);
+    	System.out.println(customer);
+    	ListByIdResult result = new ListByIdResult(customer);
+        return result;
     }
 
     @Override
-    public Customer getCustomerByPhone(FindByPhoneArgs phone) {
-
-        return customerRepository.findByPhone(phone.getPhone());
+    public FindByPhoneResult getCustomerByPhone(FindByPhoneArgs args) {
+    	FindByPhoneResult result = new FindByPhoneResult(customerRepository.findByPhone(args.getPhone())) ;
+        return result;
     }
 
     @Override
-    public List<Customer> getAllCustomer() {
-        return customerRepository.findAll();
+    public ListCustomerResult getAllCustomer(ListAllCustomerArgs args) {
+            List<Customer> customerList = customerRepository.findAll(args);
+            return new ListCustomerResult(customerList);
+
     }
 
     @Override

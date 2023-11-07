@@ -1,19 +1,26 @@
 package com.thc.customerservice.Args;
 
+import com.thc.customerservice.Requests.FindByPhoneRequest;
+
 public class FindByPhoneArgs {
-    private String phone;
+	private FindByPhoneRequest request;
+	private String phone;
 
-    public FindByPhoneArgs(String phone) {
-        this.phone = phone;
-    }
+	public FindByPhoneArgs(FindByPhoneRequest request) {
+		super();
+		this.request = request;
+	}
 
-    public String getPhone() {
-        return phone;
-    }
+	public FindByPhoneRequest getRequest() {
+		return request;
+	}
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
+	public void setRequest(FindByPhoneRequest request) {
+		this.request = request;
+	}
 
+	public String getPhone() {
+		return this.request.getPhone();
+	}
 
 }

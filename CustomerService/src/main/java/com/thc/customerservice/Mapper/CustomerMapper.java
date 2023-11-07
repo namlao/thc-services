@@ -1,14 +1,14 @@
 package com.thc.customerservice.Mapper;
 
+import com.thc.customerservice.Args.ListAllCustomerArgs;
 import com.thc.customerservice.Entity.Customer;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
 @Mapper
-public interface CustomerMapper {
-    List<Customer> findAll();
-
+public interface CustomerMapper{
+    List<Customer> findAll(ListAllCustomerArgs args);
     Customer findById(String id);
 
     int addCustomer(Customer cart);

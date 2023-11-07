@@ -6,37 +6,23 @@ import org.springframework.http.HttpStatus;
 import java.util.List;
 
 public class ListCustomerResult {
-    private int count;
-    private int code;
-    private List<Customer> carts;
 
-    public ListCustomerResult(List<Customer> cart) {
-        this.carts = cart;
-        this.code = HttpStatus.OK.value();
-        this.count = cart.size();
+    private List<Customer> customerList;
+
+    public ListCustomerResult(List<Customer> customerList) {
+        this.customerList = customerList;
     }
 
-    public int getCount() {
-        return count;
+    public ListCustomerResult() {
+
     }
 
-    public void setCount(int count) {
-        this.count = count;
+    public List<Customer> getCustomerList() {
+        return customerList;
     }
 
-    public int getCode() {
-        return code;
+    public void setCustomerList(List<Customer> customerList) {
+        this.customerList = customerList;
     }
 
-    public void setCode(int code) {
-        this.code = code;
-    }
-
-    public List<Customer> getCarts() {
-        return carts;
-    }
-
-    public void setCarts(List<Customer> carts) {
-        this.carts = carts;
-    }
 }

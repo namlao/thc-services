@@ -1,11 +1,12 @@
 package com.thc.customerservice.Repository;
 
+import com.thc.customerservice.Args.ListAllCustomerArgs;
 import com.thc.customerservice.Entity.Customer;
 
 import java.util.List;
 
 public interface CustomerRepository {
-    List<Customer> findAll();
+    List<Customer> findAll(ListAllCustomerArgs args);
 
     Customer findById(String id);
 
