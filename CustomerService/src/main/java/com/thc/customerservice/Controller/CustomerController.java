@@ -1,11 +1,36 @@
 package com.thc.customerservice.Controller;
 
-import com.thc.customerservice.Args.*;
-import com.thc.customerservice.Requests.*;
-import com.thc.customerservice.Response.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+import com.thc.customerservice.Args.AddCustomerArgs;
+import com.thc.customerservice.Args.DeleteCustomerArgs;
+import com.thc.customerservice.Args.FindByIdArgs;
+import com.thc.customerservice.Args.FindByPhoneArgs;
+import com.thc.customerservice.Args.ListAllCustomerArgs;
+import com.thc.customerservice.Args.UpdateCustomerArgs;
+import com.thc.customerservice.Args.UpdateCustomerByPhoneArgs;
+import com.thc.customerservice.Requests.AddCustomerRequest;
+import com.thc.customerservice.Requests.DeleteCustomerRequest;
+import com.thc.customerservice.Requests.FindByPhoneRequest;
+import com.thc.customerservice.Requests.ListAllCustomerRequest;
+import com.thc.customerservice.Requests.ListByIdRequest;
+import com.thc.customerservice.Requests.UpdateCustomerByPhoneRequest;
+import com.thc.customerservice.Requests.UpdateCustomerRequest;
+import com.thc.customerservice.Response.AddCustomerResponse;
+import com.thc.customerservice.Response.DeleteCustomerResponse;
+import com.thc.customerservice.Response.FindByPhoneResponse;
+import com.thc.customerservice.Response.ListAllCustomerResponse;
+import com.thc.customerservice.Response.ListByIdResponse;
+import com.thc.customerservice.Response.UpdateCustomerByPhoneResponse;
+import com.thc.customerservice.Response.UpdateCustomerResponse;
 import com.thc.customerservice.Services.CustomerService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -14,6 +39,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+
 
 @Tag(name = "Customer Controller", description = "Customer management APIs")
 @RestController

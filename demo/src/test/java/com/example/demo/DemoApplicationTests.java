@@ -1,10 +1,10 @@
-//package com.thc.customerservice;
+//package com.example.demo;
 //
 //import org.junit.jupiter.api.Test;
 //import org.springframework.boot.test.context.SpringBootTest;
 //
 //@SpringBootTest
-//class CustomerServiceApplicationTests {
+//class DemoApplicationTests {
 //
 //    @Test
 //    void contextLoads() {

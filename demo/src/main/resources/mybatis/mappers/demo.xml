@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.Mapper.DemoMapper">
+    <resultMap id="demoresultmap" type="demo">
+		<result column="ID" property="id"/>
+        <result column="NAME" property="name"/>
+        <result column="CREATED_AT" property="created_at"/>
+        <result column="UPDATED_AT" property="updated_at"/>
+        <result column="CREATED_USER" property="created_user"/>
+        <result column="UPDATED_USER" property="updated_user"/>
+    </resultMap>
+
+    <select id="findAll" resultMap="demoresultmap" >
+        SELECT *
+        FROM demo
+    </select>
+
+</mapper>
