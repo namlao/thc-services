@@ -26,9 +26,9 @@ public class DemoRepositoryImpl implements DemoRepository{
 	}
 
 	@Override
-	public int add(Demo entity) {
+	public Demo add(Demo entity) {
 		// TODO Auto-generated method stub
-		return 0;
+		return null;
 	}
 
 	@Override

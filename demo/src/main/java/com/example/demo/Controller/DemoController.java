@@ -11,6 +11,7 @@ import com.example.demo.Args.AddDemoArgs;
 import com.example.demo.Repository.DemoRepository;
 import com.example.demo.Result.AddDemoResult;
 import com.example.demo.Service.DemoService;
+import com.example.demo.Service.Impl.DemoServiceImpl;
 import com.example.demo.entity.Demo;
 import com.thc.baseservice.Service.AbstractTHCService;
 
@@ -22,7 +23,9 @@ public class DemoController {
 	
 	@GetMapping("/test")
     public void index() {
-		Demo args = new Demo("nam");
-		demoService.create(args);
+		System.out.println("hihi");
+		Demo demo = new Demo("nam");
+		AddDemoArgs args = new AddDemoArgs(demo);
+		AddDemoResult rs = demoService.create(args);
     }
 }

@@ -2,10 +2,10 @@ package com.thc.baseservice.Args;
 
 import com.thc.baseservice.Entity.AbstractEntity;
 
-public class AbstractAddEntityArgs<T extends AbstractEntity> {
+public class AbstractEntityArgs<T extends AbstractEntity> {
 	private T entity;
 
-	public AbstractAddEntityArgs(T entity) {
+	public AbstractEntityArgs(T entity) {
 		super();
 		this.entity = entity;
 	}

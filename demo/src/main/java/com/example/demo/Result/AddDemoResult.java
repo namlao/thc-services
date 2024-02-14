@@ -1,9 +1,9 @@
 package com.example.demo.Result;
 
 import com.example.demo.entity.Demo;
-import com.thc.baseservice.Result.AbstractAddEntityResult;
+import com.thc.baseservice.Result.AbstractEntityResult;
 
-public class AddDemoResult extends AbstractAddEntityResult<Demo> {
+public class AddDemoResult extends AbstractEntityResult<Demo> {
 	public AddDemoResult(Demo entity) {
 		super(entity);
 		// TODO Auto-generated constructor stub

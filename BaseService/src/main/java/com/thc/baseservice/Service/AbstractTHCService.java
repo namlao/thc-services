@@ -1,32 +1,34 @@
-package com.thc.baseservice.Service;
-
-public abstract class AbstractTHCService<R,A> {
-	private R result;
-	private A agrs;
-	
-	
-	
-	public AbstractTHCService() {
-		super();
-	}
-	public AbstractTHCService(R result, A agrs) {
-		super();
-		this.result = result;
-		this.agrs = agrs;
-	}
-	public R getResult() {
-		return result;
-	}
-	public void setResult(R result) {
-		this.result = result;
-	}
-	public A getAgrs() {
-		return agrs;
-	}
-	public void setAgrs(A agrs) {
-		this.agrs = agrs;
-	}
-
-	abstract R create(A args);
-	
-}
+//package com.thc.baseservice.Service;
+//
+//import com.thc.baseservice.Args.AbstractEntityArgs;
+//import com.thc.baseservice.Entity.AbstractEntity;
+//import com.thc.baseservice.Result.AbstractEntityResult;
+//
+//public abstract class AbstractTHCService<T extends AbstractEntity> implements THCService<T>{
+//
+//	
+//	private T obj;
+//	
+//	
+//	
+//	public T getObj() {
+//		return obj;
+//	}
+//
+//
+//
+//	public void setObj(T obj) {
+//		this.obj = obj;
+//	}
+//
+//
+//
+//	@Override
+//	public <R extends AbstractEntityResult<T>, A extends AbstractEntityArgs<AbstractEntity>> R create(A args) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//
+//	
+//	
+//}

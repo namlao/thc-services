@@ -7,7 +7,7 @@ public interface THCRepository<T,K> {
 
 	T findById(String id);
 
-	int add(T entity);
+	T add(T entity);
 
 	Long count();
 
